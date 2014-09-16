@@ -1,0 +1,7 @@
+strComputer = "computername"
+strCommand = "notepad.exe"
+
+Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+Set objProcess = objWMIService.Get("Win32_Process")
+
+errReturn = objProcess.Create(strCommand, null, null, intProcessID)
